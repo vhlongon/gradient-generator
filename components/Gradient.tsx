@@ -59,8 +59,8 @@ export const Gradient = ({ data }: GradientProps) => {
           </pre>
           <div
             className={twMerge(
-              'absolute opacity-0 bottom-0 right-0  bg-gray-800 bg-opacity-90 text-gray-300 rounded-md p-2 text-sm transition-opacity duration-300 ease-in-out',
-              showTooltip && 'opacity-100'
+              'absolute invisible opacity-0 bottom-0 right-0  bg-gray-800 bg-opacity-90 text-gray-300 rounded-md p-2 text-sm transition-opacity duration-300 ease-in-out',
+              showTooltip && 'opacity-100 visible'
             )}
           >
             Copied!
