@@ -18,10 +18,30 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+
+.mask {
+  clip-path: polygon(30% 0%, 90% 0%, 100% 80%, 20% 100%, 0% 50%);
+}
+
+.drop-effect {
+  --pink-500: #ec4899;
+  text-shadow:
+    1px 1px var(--pink-500),
+    2px 2px var(--pink-500),
+    3px 3px var(--pink-500),
+    4px 4px var(--pink-500),
+    5px 5px var(--pink-500),
+    6px 6px var(--pink-500),
+    7px 7px var(--pink-500),
+    8px 8px var(--pink-500),
+    9px 9px var(--pink-500),
+    10px 10px var(--pink-500),
+    11px 11px var(--pink-500),
+    12px 12px var(--pink-500),
+    13px 13px var(--pink-500),
+    14px 14px var(--pink-500),
+    15px 15px var(--pink-500),
+    16px 16px var(--pink-500);
 }
