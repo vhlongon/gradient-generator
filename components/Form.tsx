@@ -4,6 +4,7 @@ import { getColours } from '@/actions/getColours';
 import { usePrevious } from '@/hooks/usePrevious';
 import { ColorsData } from '@/types';
 import { ChangeEventHandler, useState, useTransition } from 'react';
+import { twMerge } from 'tailwind-merge';
 import { Colors } from './Colors';
 import { Gradient } from './Gradient';
 import { ImageViewer } from './ImageViewer';
@@ -14,7 +15,7 @@ export const Form = () => {
   const [colorsData, setColoursData] = useState<ColorsData | null>(null);
   const [image, setImage] = useState<{ name: string; src: string } | null>(null);
   const prevImage = usePrevious(image);
-  const hasChanged = prevImage?.name !== image?.name;
+  const hasChanged = image?.name && prevImage?.name !== image?.name;
 
   const handleAction = (formData: FormData) => {
     setError('');
@@ -67,7 +68,13 @@ export const Form = () => {
       )}
       <div className="flex flex-col items-center md:flex-row gap-4">
         {image && <ImageViewer {...image} />}
-        <form className="flex flex-col items-center md:items-start justify-between py-4 gap-4" action={handleAction}>
+        <form
+          className={twMerge(
+            'flex flex-col items-center md:items-start justify-between py-4 gap-4',
+            !image && 'md:items-center'
+          )}
+          action={handleAction}
+        >
           <input
             name="image"
             id="image"
