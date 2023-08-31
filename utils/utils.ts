@@ -24,7 +24,9 @@ const createGradient = (type: 'linear' | 'radial', direction: string, colours: s
   return `${type}-gradient(${direction}, ${colours.join(', ')})`;
 };
 
-export const generateCssGradient = (colours: ColorsData, direction: string = '90deg'): string => {
+const getRandomDirection = () => `${Math.floor(Math.random() * 360)}deg`;
+
+export const generateCssGradient = (colours: ColorsData, direction: string = getRandomDirection()): string => {
   const gradients = [
     createGradient('linear', direction, [colours.darkVibrant, colours.lightVibrant]),
     createGradient('linear', direction, [colours.darkMuted, colours.lightMuted]),
