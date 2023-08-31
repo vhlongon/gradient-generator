@@ -11,7 +11,7 @@ export const Gradient = ({ data }: GradientProps) => {
 
   return (
     <div className="flex flex-col items-center md:flex-row gap-6">
-      <div className="relative h-64 w-64">
+      <div className="relative h-96 w-96">
         <div className="absolute z-10 top-0 mask w-full h-full" style={{ backgroundImage: gradient }} />
         <div className="absolute z-0 top-2 mask w-full h-full rotate-6 bg-gray-600 bg-opacity-90" />
       </div>
