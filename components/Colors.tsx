@@ -1,5 +1,5 @@
 import { ColorsData } from '@/types';
-import Swatch from './Swatch';
+import { Swatch } from './Swatch';
 
 type ColorsProps = {
   data: ColorsData;

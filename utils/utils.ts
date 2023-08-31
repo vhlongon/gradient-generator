@@ -1,3 +1,5 @@
+import { ColorsData } from '@/types';
+
 export const getErrorMessage = (error: unknown): string => {
   if (typeof error === 'string') {
     return error;
@@ -16,4 +18,30 @@ export const getErrorMessage = (error: unknown): string => {
   }
 
   return 'Something went wrong';
+};
+
+const createGradient = (type: 'linear' | 'radial', direction: string, colours: string[]): string => {
+  return `${type}-gradient(${direction}, ${colours.join(', ')})`;
+};
+
+export const generateCssGradient = (colours: ColorsData, direction: string = '90deg'): string => {
+  const gradients = [
+    createGradient('linear', direction, [colours.darkVibrant, colours.lightVibrant]),
+    createGradient('linear', direction, [colours.darkMuted, colours.lightMuted]),
+    createGradient('linear', direction, [colours.dominant, colours.muted]),
+    createGradient('linear', direction, [colours.lightVibrant, colours.darkVibrant]),
+    createGradient('linear', direction, [colours.lightMuted, colours.darkMuted]),
+    createGradient('linear', direction, [colours.lightVibrant, colours.dominant]),
+    createGradient('linear', direction, [colours.darkVibrant, colours.muted]),
+    createGradient('radial', 'circle', [colours.darkVibrant, colours.lightVibrant]),
+    createGradient('radial', 'circle', [colours.darkMuted, colours.lightMuted]),
+    createGradient('radial', 'circle', [colours.dominant, colours.muted]),
+    createGradient('radial', 'circle', [colours.lightVibrant, colours.darkVibrant]),
+    createGradient('radial', 'circle', [colours.lightMuted, colours.darkMuted]),
+    createGradient('radial', 'circle', [colours.lightVibrant, colours.dominant]),
+    createGradient('radial', 'circle', [colours.darkVibrant, colours.muted]),
+  ];
+
+  const randomIndex = Math.floor(Math.random() * gradients.length);
+  return gradients[randomIndex];
 };
